@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://restcountries.com/v3.1/all");
+
+      xhr.send();
+
+      xhr.onload = function () {
+        let nationdetails = JSON.parse(xhr.responseText);
+        for (i = 0; i < nationdetails.length; i++) {
+          console.log(nationdetails[i].name.common);
+          console.log(nationdetails[i].region);
+          console.log(nationdetails[i].subregion);
+          console.log(nationdetails[i].population);
+        }
+      };
+    </script>
+  </body>
+</html>
